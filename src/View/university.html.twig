@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <form action="?controller=university&action={{ action }}" method="post">
+        <input type="hidden" name="id" value="{{ university ? university.id|default(0) : 0 }}">
+
+        <label>
+            Name
+            <input type="text" name="name" required value="{{ university ? university.name|default('') : '' }}"/>
+        </label>
+        <br/>
+        <label>
+            City
+            <input type="text" name="city" required value="{{ university ? university.city|default('') : '' }}"/>
+        </label>
+        <br/>
+        <label>
+            Site
+            <input type="text" name="site" value="{{ university ? university.site|default('') : '' }}"/>
+        </label>
+        <br/>
+
+        <input type="submit" name="submit_button" value="OK">
+
+        <a href="?controller=university&action=index">Cancel</a>
+    </form>
+{% endblock %}

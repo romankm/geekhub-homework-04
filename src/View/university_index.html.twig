@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <h1>Universities</h1>
+
+    <a href="?controller=university&action=new">Create new</a>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Site</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>
+                {{ item.id }}
+            </td>
+            <td>
+                {{ item.name }}
+            </td>
+            <td>
+                {{ item.city }}
+            </td>
+            <td>
+                {{ item.site }}
+            </td>
+            <td>
+                <a href="?controller=university&action=edit&id={{ item.id }}">edit</a>
+            </td>
+            <td>
+                <a href="?controller=university&action=delete&id={{ item.id }}">delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

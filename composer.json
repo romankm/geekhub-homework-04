@@ -1,0 +1,19 @@
+{
+    "name": "roman/geekhub-homework-04",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Roman Kyrii",
+            "email": "romankyrii@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "require": {
+        "php" : "^7.0",
+        "twig/twig": "~1.0"
+    }
+}
