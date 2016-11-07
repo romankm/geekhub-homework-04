@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <form action="?controller=department&action={{ action }}" method="post">
+        <input type="hidden" name="id" value="{{ department ? department.id|default(0) : 0 }}">
+
+        <label>
+            Name
+            <input type="text" name="name" required value="{{ department ? department.name|default('') : '' }}"/>
+        </label>
+        <br/>
+        <label>
+            University
+            <select name="university_id">
+                {% for u in universities %}
+                    <option
+                        value="{{ u.id }}"
+                        {% if department and department.universityId == u.id %}
+                            selected
+                        {% endif %}
+                    >
+                        {{ u.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </label>
+        <br/>
+
+        <input type="submit" name="submit_button" value="OK">
+
+        <a href="?controller=department&action=index">Cancel</a>
+    </form>
+{% endblock %}
